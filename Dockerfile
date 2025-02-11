@@ -1,10 +1,10 @@
 FROM ruby:3.1
 
-WORKDIR /app  # Ensure the correct working directory
+WORKDIR /app  # Set the working directory
 
-COPY . .  # Copy all files
+COPY . /app   # Copy everything into the container
 
-RUN gem install bundler && bundle install  # Install dependencies
+RUN gem install bundler && bundle install
 
 EXPOSE 3000
 
