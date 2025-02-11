@@ -13,4 +13,4 @@ RUN gem install bundler && bundle install
 EXPOSE 3000
 
 # Set the start command to run the Rails server on port 3000
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+# CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
