@@ -1,16 +1,26 @@
+# Use official Ruby image
 FROM ruby:3.1
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the contents of the current directory to /app in the container
-COPY . /app/
+# Install dependencies
+RUN apt-get update -qq && apt-get install -y nodejs yarn
 
-# Install bundler and install dependencies specified in the Gemfile
-RUN gem install bundler && bundle install
+# Copy the Gemfile and Gemfile.lock first to leverage Docker caching
+COPY Gemfile Gemfile.lock ./
 
-# Expose port 3000 (default port for Rails)
+# Install Bundler and gems
+RUN gem install bundler && bundle install --jobs 4 --retry 3
+
+# Copy the rest of the app
+COPY . .
+
+# Expose port 3000
 EXPOSE 3000
 
-# Set the start command to run the Rails server on port 3000
+# Precompile assets (optional, needed if using Rails with assets)
+RUN bundle exec rake assets:precompile
+
+# Start Rails server
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
