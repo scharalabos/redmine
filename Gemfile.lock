@@ -1,0 +1,27 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rails (6.1.7)
+      actioncable (= 6.1.7)
+      actionmailbox (= 6.1.7)
+      actionmailer (= 6.1.7)
+      actionpack (= 6.1.7)
+      actiontext (= 6.1.7)
+      actionview (= 6.1.7)
+      activejob (= 6.1.7)
+      activemodel (= 6.1.7)
+      activerecord (= 6.1.7)
+      activestorage (= 6.1.7)
+      activesupport (= 6.1.7)
+      bundler (>= 1.15.0)
+      railties (= 6.1.7)
+      sprockets-rails (>= 2.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rails (~> 6.1)
+
+BUNDLED WITH
+   2.3.26
