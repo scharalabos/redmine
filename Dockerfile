@@ -21,7 +21,7 @@ COPY . .
 EXPOSE 3000
 
 # Precompile assets (optional, needed if using Rails with assets)
-RUN bundle exec rake assets:precompile
+#RUN bundle exec rake assets:precompile
 
 # Start Rails server
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
